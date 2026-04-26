@@ -1,0 +1,135 @@
+<!--  WAP to make a Snake and Ladder game  -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Snake and Ladder</title>
+<style>
+body{font-family:Arial;text-align:center;background:#eef;}
+#container{position:relative;width:600px;margin:auto;}
+.board{
+  display:grid;
+  grid-template-columns:repeat(10,60px);
+  grid-template-rows:repeat(10,60px);
+}
+.cell{
+  width:60px;height:60px;
+  border:1px solid #000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#fff;
+  font-size:12px;
+}
+.player{
+  background:red;color:#fff;
+  border-radius:50%;
+  width:28px;height:28px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:bold;
+}
+canvas{
+  position:absolute;
+  top:0;
+  left:0;
+  pointer-events:none;
+}
+</style>
+</head>
+<body>
+
+<h2>Snake & Ladder Game</h2>
+<button onclick="rollDice()">Roll Dice</button>
+<p id="dice"></p>
+
+<div id="container">
+  <div class="board" id="board"></div>
+  <canvas id="canvas" width="600" height="600"></canvas>
+</div>
+
+<script>
+const board=document.getElementById("board");
+const canvas=document.getElementById("canvas");
+const ctx=canvas.getContext("2d");
+
+let pos=1;
+
+const snakes={17:7,54:34,62:19,98:79};
+const ladders={3:22,8:26,20:38,41:60,50:91};
+
+function cellXY(n){
+  let r=Math.floor((n-1)/10);
+  let c=(n-1)%10;
+  if(r%2===1) c=9-c;
+  return {
+    x:c*60+30,
+    y:570-r*60
+  };
+}
+
+function drawLines(){
+  ctx.clearRect(0,0,600,600);
+
+  ctx.strokeStyle="green";
+  ctx.lineWidth=6;
+  for(let l in ladders){
+    let s=cellXY(+l);
+    let e=cellXY(ladders[l]);
+    ctx.beginPath();
+    ctx.moveTo(s.x,s.y);
+    ctx.lineTo(e.x,e.y);
+    ctx.stroke();
+  }
+
+  ctx.strokeStyle="red";
+  ctx.lineWidth=6;
+  for(let s in snakes){
+    let st=cellXY(+s);
+    let en=cellXY(snakes[s]);
+    ctx.beginPath();
+    ctx.moveTo(st.x,st.y);
+    ctx.lineTo(en.x,en.y);
+    ctx.stroke();
+  }
+}
+
+function drawBoard(){
+  board.innerHTML="";
+  for(let i=100;i>=1;i--){
+    let d=document.createElement("div");
+    d.className="cell";
+    if(i===pos){
+      let p=document.createElement("div");
+      p.className="player";
+      p.textContent="D";
+      d.appendChild(p);
+    }else{
+      d.textContent=i;
+    }
+    board.appendChild(d);
+  }
+  drawLines();
+}
+
+function rollDice(){
+  let dice=Math.floor(Math.random()*6)+1;
+  document.getElementById("dice").textContent="Dice: "+dice;
+
+  if(pos+dice<=100) pos+=dice;
+
+  if(snakes[pos]) pos=snakes[pos];
+  if(ladders[pos]) pos=ladders[pos];
+
+  if(pos===100){
+    alert("You Win!");
+    pos=1;
+  }
+  drawBoard();
+}
+
+drawBoard();
+</script>
+</body>
+</html>
