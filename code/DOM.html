@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOM Manipulation</title>
+    <style>
+        body { font-family: Arial; text-align: center; }
+        .box { color: blue; }
+    </style>
+</head>
+<body>
+
+    <h2 id="heading">DOM Demo</h2>
+
+    <p class="box">Item 1</p>
+    <p class="box">Item 2</p>
+
+    <input type="text" name="username" placeholder="Enter your name">
+
+    <button onclick="updateContent()">Click Me</button>
+
+    <ul id="list"></ul>
+
+    <script>
+        let count = 0;
+
+        function updateContent() {
+            count++;
+
+            document.getElementById("heading").innerHTML = "Clicked " + count + " times";
+
+            let items = document.getElementsByClassName("box");
+            for (let i = 0; i < items.length; i++) {
+                items[i].style.color = (i % 2 === 0) ? "red" : "green";
+            }
+
+            let name = document.getElementsByName("username")[0].value;
+            if (name !== "") {
+                document.getElementById("list").innerHTML += "<li>" + name + "</li>";
+            }
+
+            let allPara = document.getElementsByTagName("p");
+            for (let i = 0; i < allPara.length; i++) {
+                allPara[i].style.fontWeight = "bold";
+            }
+        }
+    </script>
+
+</body>
+</html>

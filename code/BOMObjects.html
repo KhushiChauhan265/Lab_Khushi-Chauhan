@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BOM Demo</title>
+</head>
+<body>
+
+    <h2>BOM Objects Demo</h2>
+
+    <button onclick="showInfo()">Show Browser Info</button>
+
+    <p id="output"></p>
+
+    <script>
+        function showInfo() {
+            let info = "";
+
+            info += "Window Size: " + window.innerWidth + " x " + window.innerHeight + "<br>";
+
+            info += "Browser Name: " + navigator.appName + "<br>";
+            info += "User Agent: " + navigator.userAgent + "<br>";
+
+            info += "Screen Resolution: " + screen.width + " x " + screen.height + "<br>";
+
+            info += "History Length: " + history.length + "<br>";
+
+            document.getElementById("output").innerHTML = info;
+        }
+    </script>
+
+</body>
+</html>
