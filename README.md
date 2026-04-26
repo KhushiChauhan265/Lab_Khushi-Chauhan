@@ -13,14 +13,17 @@ Code: code/snake.html
 3. Chess Board
 Code: code/chess.html
 
-4. BOM Objects
+4. Internal & External JavaScript
+Code: code/InternalAndExternalJS.html + script.js
+
+5. BOM Objects
 Code: code/BOMObjects.html
 
-5. DOM Manipulation
+6. DOM Manipulation
 Code: code/DOM.html
 
-6. Internal & External JavaScript
-Code: code/InternalAndExternalJS.html
+7. Dynamic Web Page
+Code: code/DynWebPg
 
 Author
 Khushi Chauhan
