@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Color Changer</title>
+    <style>
+        body {
+            text-align: center;
+            margin-top: 100px;
+            font-family: Arial;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Clicks: <span id="count">0</span></h1>
+    <button onclick="handleClick()">Change Color</button>
+
+    <!-- External JS -->
+    <script src="script.js"></script>
+
+    <!-- Internal JS -->
+    <script>
+        let clicks = 0;
+
+        function handleClick() {
+            clicks++;
+            document.getElementById('count').innerText = clicks;
+            changeBgColor();
+        }
+    </script>
+
+</body>
+</html>
