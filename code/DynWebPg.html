@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic Page</title>
+</head>
+<body>
+
+    <h2>Enter a Number</h2>
+
+    <input type="number" id="num">
+    <button onclick="generateTable()">Generate Table</button>
+
+    <p id="result"></p>
+
+    <script>
+        function generateTable() {
+            let num = document.getElementById("num").value;
+            let output = "";
+
+            if (num === "" || num <= 0) {
+                output = "Please enter a valid number!";
+            } else {
+                for (let i = 1; i <= 10; i++) {
+                    output += num + " x " + i + " = " + (num * i) + "<br>";
+                }
+            }
+
+            document.getElementById("result").innerHTML = output;
+        }
+    </script>
+
+</body>
+</html>
