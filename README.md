@@ -4,23 +4,23 @@ This repository contains my JavaScript lab experiments along with their source c
 
 Experiments:-
 
-1. BOM Objects
-Code: code/BOM Objects.html
-
-3. DOM Manipulation
-Code: code/DOM.html
-
-5. Internal & External JavaScript
-Code: code/InternalAndExternalJS.html
-
-4. Calculator
+1. Calculator
 Code: code/calculator.html
 
-6. Chess Board
+2. Snake Game
+Code: code/snake.html
+
+3. Chess Board
 Code: code/chess.html
 
-8. Snake Game
-Code: code/snake.html
+4. BOM Objects
+Code: code/BOMObjects.html
+
+5. DOM Manipulation
+Code: code/DOM.html
+
+6. Internal & External JavaScript
+Code: code/InternalAndExternalJS.html
 
 Author
 Khushi Chauhan
